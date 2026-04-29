@@ -1,5 +1,5 @@
 -- bypassed key system 
--- warn! key system is bypassed but main script will not load! this is because of luarmor defense (local sdk            = loadstring(game:HttpGet('https://sdkapi-public.luarmor.net/library.lua'))() )
+-- warn! key system is bypassed but main script will not load! this is because of luarmor defense (sdkapi-public.luarmor.net/library.lua)
 loadstring('function LPH_NO_VIRTUALIZE(f) return f end;\n')()
 local cloneRef = cloneref or function(obj) return obj end
 local TweenService      = cloneRef(game:GetService('TweenService'))
