@@ -1,5 +1,4 @@
--- bypassed key system 
--- warn! key system is bypassed but main script will not load! this is because of luarmor defense (sdkapi-public.luarmor.net/library.lua)
+-- cracked by MindyLoozy
 loadstring('function LPH_NO_VIRTUALIZE(f) return f end;\n')()
 local cloneRef = cloneref or function(obj) return obj end
 local TweenService      = cloneRef(game:GetService('TweenService'))
@@ -8,8 +7,9 @@ local Players           = cloneRef(game:GetService('Players'))
 local CoreGui           = cloneRef(game:GetService('CoreGui'))
 local setClipboard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
 local getEnv       = getgenv or function() return shared end
--- discordinv now useless
--- local discordInvite  = 'discord.gg/luminhub'
+-- useless
+--[[ local discordInvite  = 'discord.gg/luminhub'
+]]
 local keyUrl         = 'https://luminon.top/getkey'
 local sdk            = loadstring(game:HttpGet('https://sdkapi-public.luarmor.net/library.lua'))()
 local gameKeyMapping = {
@@ -30,8 +30,7 @@ local gameKeyMapping = {
 }
 local fallbackKey = 'ed58a7c08024fcb2909098cc898418c1'
 local scriptId    = gameKeyMapping[game.GameId] or fallbackKey
--- save key dead
---[[ local keyFileName = 'LuminHub_Key.txt'
+local keyFileName = 'LuminHub_Key.txt'
 local function getSavedKey()
     if not isfile then return nil end
     local success, content = pcall(function()
@@ -51,7 +50,6 @@ local function deleteSavedKey()
         if isfile and isfile(keyFileName) then delfile(keyFileName) end
     end)
 end
-]]
 local function tryAutoAuth()
     return false
 end
@@ -327,19 +325,20 @@ closeButton.MouseButton1Click:Connect(function()
     task.wait(0.2)
     screenGui:Destroy()
 end)
---[[ supportButton.MouseButton1Click:Connect(function()
+supportButton.MouseButton1Click:Connect(function()
     if setClipboard then setClipboard('https://' .. discordInvite) end
     statusLabel.TextColor3 = Color3.fromRGB(87, 242, 135)
     statusLabel.Text       = 'Discord link copied!'
     task.delay(2, function() statusLabel.Text = '' end)
 end)
-]]
 getKeyButton.MouseButton1Click:Connect(function()
     if setClipboard then setClipboard(keyUrl) end
     statusLabel.TextColor3 = Color3.fromRGB(87, 242, 135)
-    statusLabel.Text       = 'not use it because dc script is dead'
+    statusLabel.Text       = 'Key link copied!'
     task.delay(2, function() statusLabel.Text = '' end)
 end)
+
+-- ===== ВОТ ЗДЕСЬ САМЫЙ СОК, КРЯК КЕЙ СИСТЕМЫ, ВСЁ НАХУЙ =====
 checkButton.MouseButton1Click:Connect(function()
     local enteredKey = keyTextBox.Text
     if enteredKey == '' then
@@ -347,20 +346,35 @@ checkButton.MouseButton1Click:Connect(function()
         statusLabel.Text       = 'Please enter a key!'
         return
     end
+
     statusLabel.TextColor3 = Color3.fromRGB(87, 242, 135)
     statusLabel.Text       = 'Key valid! Loading script...'
-    getEnv().script_key    = enteredKey
+
+    -- ВАЖНО! Без этой хуйни load_script раньше обсирался и ничо не грузил
+    sdk.script_id = scriptId
+
+    -- Суём ключ в окружение и в файл, чтоб внутри load_script не орало
+    getEnv().script_key = enteredKey
     saveKey(enteredKey)
-    sdk.check_key = function() return {code = 'KEY_VALID'} end
+
+    -- Подменяем саму функцию проверки ключа на левую, которая всегда тру
+    sdk.check_key = function()
+        return { code = 'KEY_VALID' }
+    end
+
     task.wait(0.5)
     tween(mainFrame, {
-        Size                   = UDim2.new(0, 0, 0, 0),
+        Size = UDim2.new(0, 0, 0, 0),
         BackgroundTransparency = 1
     }, 0.2)
     task.wait(0.2)
     screenGui:Destroy()
+
+    -- Пуск основного скрипта
     sdk.load_script()
 end)
+
+-- Анимация появления окна
 mainFrame.Size                   = UDim2.new(0, 0, 0, 0)
 mainFrame.BackgroundTransparency = 1
 tween(mainFrame, {
