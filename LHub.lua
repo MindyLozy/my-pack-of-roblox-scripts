@@ -326,16 +326,17 @@ closeButton.MouseButton1Click:Connect(function()
     task.wait(0.2)
     screenGui:Destroy()
 end)
-supportButton.MouseButton1Click:Connect(function()
+--[[ supportButton.MouseButton1Click:Connect(function()
     if setClipboard then setClipboard('https://' .. discordInvite) end
     statusLabel.TextColor3 = Color3.fromRGB(87, 242, 135)
     statusLabel.Text       = 'Discord link copied!'
     task.delay(2, function() statusLabel.Text = '' end)
 end)
+]]
 getKeyButton.MouseButton1Click:Connect(function()
     if setClipboard then setClipboard(keyUrl) end
     statusLabel.TextColor3 = Color3.fromRGB(87, 242, 135)
-    statusLabel.Text       = 'Key link copied!'
+    statusLabel.Text       = 'not use it because dc script is dead'
     task.delay(2, function() statusLabel.Text = '' end)
 end)
 checkButton.MouseButton1Click:Connect(function()
