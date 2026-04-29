@@ -8,6 +8,10 @@ local LocalPlayer = Players.LocalPlayer
 local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 
+-- BRO ITS FOUND ON SCRIPTBLOX (noad)
+-- scriptblox.com/script/Brookhaven-RP-Xdemic-music-v2-many-songs-including-raps-201578
+-- absolute shittema
+
 if CoreGui:FindFirstChild("XdemicMusicV2") then
     CoreGui:FindFirstChild("XdemicMusicV2"):Destroy()
 end
