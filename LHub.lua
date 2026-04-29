@@ -1,4 +1,4 @@
--- cracked by MindyLoozy
+-- CRACKED BY MINDYLOOZY OFFICAL!!!1
 loadstring('function LPH_NO_VIRTUALIZE(f) return f end;\n')()
 local cloneRef = cloneref or function(obj) return obj end
 local TweenService      = cloneRef(game:GetService('TweenService'))
@@ -7,9 +7,7 @@ local Players           = cloneRef(game:GetService('Players'))
 local CoreGui           = cloneRef(game:GetService('CoreGui'))
 local setClipboard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
 local getEnv       = getgenv or function() return shared end
--- useless
---[[ local discordInvite  = 'discord.gg/luminhub'
-]]
+local discordInvite  = 'discord.gg/luminhub'
 local keyUrl         = 'https://luminon.top/getkey'
 local sdk            = loadstring(game:HttpGet('https://sdkapi-public.luarmor.net/library.lua'))()
 local gameKeyMapping = {
@@ -338,7 +336,7 @@ getKeyButton.MouseButton1Click:Connect(function()
     task.delay(2, function() statusLabel.Text = '' end)
 end)
 
--- ===== ВОТ ЗДЕСЬ САМЫЙ СОК, КРЯК КЕЙ СИСТЕМЫ, ВСЁ НАХУЙ =====
+-- ===================== КРЯК КЕЙ СИСТЕМЫ (ЖОСКО) =====================
 checkButton.MouseButton1Click:Connect(function()
     local enteredKey = keyTextBox.Text
     if enteredKey == '' then
@@ -350,18 +348,27 @@ checkButton.MouseButton1Click:Connect(function()
     statusLabel.TextColor3 = Color3.fromRGB(87, 242, 135)
     statusLabel.Text       = 'Key valid! Loading script...'
 
-    -- ВАЖНО! Без этой хуйни load_script раньше обсирался и ничо не грузил
+    -- 1. script_id для библиотеки
     sdk.script_id = scriptId
 
-    -- Суём ключ в окружение и в файл, чтоб внутри load_script не орало
-    getEnv().script_key = enteredKey
-    saveKey(enteredKey)
+    -- 2. Сохраняем ключ во все возможные глобальные переменные, чтобы основной скрипт нашёл
+    local fakeKey = enteredKey
+    getEnv().script_key = fakeKey
+    _G.script_key = fakeKey
+    shared.script_key = fakeKey
+    _G['%USER_KEY%'] = fakeKey
+    _G.LuarmorKey = fakeKey
+    _G.luarmor_key = fakeKey
 
-    -- Подменяем саму функцию проверки ключа на левую, которая всегда тру
+    -- 3. Сохраняем в файл, на всякий случай
+    saveKey(fakeKey)
+
+    -- 4. Подменяем саму функцию проверки, чтобы load_script не брыкался
     sdk.check_key = function()
         return { code = 'KEY_VALID' }
     end
 
+    -- 5. Закрываем меню и запускаем основной скрипт
     task.wait(0.5)
     tween(mainFrame, {
         Size = UDim2.new(0, 0, 0, 0),
@@ -369,8 +376,6 @@ checkButton.MouseButton1Click:Connect(function()
     }, 0.2)
     task.wait(0.2)
     screenGui:Destroy()
-
-    -- Пуск основного скрипта
     sdk.load_script()
 end)
 
