@@ -1,4 +1,4 @@
--- CRACKED BY MINDYLOOZY OFFICAL!!!1
+-- cracked key system 
 loadstring('function LPH_NO_VIRTUALIZE(f) return f end;\n')()
 local cloneRef = cloneref or function(obj) return obj end
 local TweenService      = cloneRef(game:GetService('TweenService'))
