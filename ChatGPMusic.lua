@@ -9,7 +9,7 @@ local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 
 -- BRO ITS FOUND ON SCRIPTBLOX (noad)
--- scriptblox.com/script/Brookhaven-RP-Xdemic-music-v2-many-songs-including-raps-201578
+-- and it fully vibecoded :(
 -- absolute shittema
 
 if CoreGui:FindFirstChild("XdemicMusicV2") then
