@@ -7,7 +7,8 @@ local Players           = cloneRef(game:GetService('Players'))
 local CoreGui           = cloneRef(game:GetService('CoreGui'))
 local setClipboard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
 local getEnv       = getgenv or function() return shared end
-local discordInvite  = 'discord.gg/luminhub'
+-- discordinv now useless
+-- local discordInvite  = 'discord.gg/luminhub'
 local keyUrl         = 'https://luminon.top/getkey'
 local sdk            = loadstring(game:HttpGet('https://sdkapi-public.luarmor.net/library.lua'))()
 local gameKeyMapping = {
