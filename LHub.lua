@@ -29,7 +29,8 @@ local gameKeyMapping = {
 }
 local fallbackKey = 'ed58a7c08024fcb2909098cc898418c1'
 local scriptId    = gameKeyMapping[game.GameId] or fallbackKey
-local keyFileName = 'LuminHub_Key.txt'
+-- check script dead
+--[[ local keyFileName = 'LuminHub_Key.txt'
 local function getSavedKey()
     if not isfile then return nil end
     local success, content = pcall(function()
@@ -49,6 +50,7 @@ local function deleteSavedKey()
         if isfile and isfile(keyFileName) then delfile(keyFileName) end
     end)
 end
+]]
 local function tryAutoAuth()
     return false
 end
