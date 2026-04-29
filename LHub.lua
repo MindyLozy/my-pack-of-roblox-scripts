@@ -29,7 +29,7 @@ local gameKeyMapping = {
 }
 local fallbackKey = 'ed58a7c08024fcb2909098cc898418c1'
 local scriptId    = gameKeyMapping[game.GameId] or fallbackKey
--- check script dead
+-- save key dead
 --[[ local keyFileName = 'LuminHub_Key.txt'
 local function getSavedKey()
     if not isfile then return nil end
